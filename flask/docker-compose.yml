@@ -7,7 +7,7 @@ services:
         volumes:
             - ./data/db:/var/lib/postgresql/data
         environment:
-            - POSTGRES_DB=postgres
+            - POSTGRES_DB=user_reviews
             - POSTGRES_USER=postgres
             - POSTGRES_PASSWORD=postgres
         ports:
@@ -21,3 +21,4 @@ services:
             - .:/code
         environment:
             FLASK_ENV: development
+            DATABASE_URL: postgresql://postgres:postgres@db:5432/user_reviews

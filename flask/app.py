@@ -1,10 +1,13 @@
 from flask import Flask
-app = Flask(__name__)
+from flask_sqlalchemy import SQLAlchemy
 
+app = Flask(__name__)
+app.config.from_object("config.Config")
+db = SQLAlchemy(app)
 
 @app.route('/')
 def hello_world():
-    return 'Hello, Worlds!'
+    return '''<h1>User Reviews</h1>'''
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0",
