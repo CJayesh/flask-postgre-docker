@@ -21,4 +21,7 @@ services:
             - .:/code
         environment:
             FLASK_ENV: development
+            FLASK_APP: app.py
             DATABASE_URL: postgresql://postgres:postgres@db:5432/user_reviews
+        depends_on:
+            - db
