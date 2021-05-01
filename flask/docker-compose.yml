@@ -14,6 +14,7 @@ services:
             - 5432:5432
     server:
         build: .
+        restart: on-failure
         container_name: server
         ports:
             - "5000:5000"
