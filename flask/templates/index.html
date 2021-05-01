@@ -25,7 +25,8 @@
         </div>
         {% endif %}
         <div>
-            <form id="form-{{loop.index}}" method="{{endpoint.method}}" action="/{{endpoint.endpoint}}/">
+            <form id="form-{{loop.index}}" method="{{endpoint.method}}" action="/{{endpoint.endpoint}}/"
+                target="_blank">
                 {% for field in endpoint.form_fields %}
                 <div>
                     <label>{{field}}:</label>
