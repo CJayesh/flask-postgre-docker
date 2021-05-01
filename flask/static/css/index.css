@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    background-color: #15202b;
+    color: white;
+}
+
+h1 {
+    width: max-content;
+    margin: 0 auto;
+}
+
+li {
+    color: #8899A6;
+}
+
+.endpoint {
+    margin: 16px 8px;
+    padding: 16px;
+    border-radius: 8px;
+    background-color: #22303c;
+}
+
+.endpoint div, button {
+    margin: 8px 0;
+}
+
+label {
+    width: 20%;
+    display: inline-block;
+}

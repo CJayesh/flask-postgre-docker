@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/index.css">
+    <title>User Reviews API</title>
+</head>
+<body>
+    <h1>User Reviews API</h1>
+    {% for endpoint in endpoints %}
+    <div class="endpoint">
+        <div><span>Method: </span>{{endpoint.method}}</div>
+        <div><span>Endpoint: </span>/{{endpoint.endpoint}}/{{ "{{{0}}}".format(endpoint.url_param)}}</div>
+        {% if endpoint.url_param: %}
+        <div>
+            <label>URL param:</label>
+            <input data-id={{loop.index}}
+                    data-endpoint="{{endpoint.endpoint}}"
+                    type="number"
+                    min="1"
+                    placeholder="{{endpoint.url_param}}"
+                    oninput="updateFormAction(this)">
+        </div>
+        {% endif %}
+        <div>
+            <form id="form-{{loop.index}}" method="{{endpoint.method}}" action="/{{endpoint.endpoint}}/">
+                {% for field in endpoint.form_fields %}
+                <div>
+                    <label>{{field}}:</label>
+                    <input step="1" name="{{field}}">
+                </div>
+                {% endfor %}
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    {% endfor %}
+    <script src="../static/js/index.js"></script>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
